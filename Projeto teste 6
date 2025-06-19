@@ -1,0 +1,67 @@
+//Caixa de fruteira
+
+console.log("Bem vindo(a) ao sistema da fruteira Mais Que Bom!\n")
+let codigo = parseInt(prompt("Por favor, funcionário(a), insira o seu código de 4 digitos para acessar o sistema: "))
+    while(codigo>9999 || codigo<1000 || isNaN(codigo)){
+        console.log("Ocorreu um erro, funcionário(a) não encontrado(a). Tente novamente.")
+        codigo = parseInt(prompt("Código de quatro dígitos: "))
+    }
+    switch(codigo){
+        case 9476:
+            funcionario = "Ânthony"
+        break
+        case 4321:
+            funcionario = "Bruno"
+        break
+        case 1234:
+            funcionario = "Fernando"
+        break
+        case 7365:
+            funcionario = "Théo"
+        break
+        default:
+            funcionario = "Funcionário(a)"
+        break
+    }
+    console.log("\nBem vindo(a), " + funcionario +"!")
+    
+    console.log("Tabela de preços:")
+ 
+    let frutas = [
+    ['Frutas:', 'Preço por unidade em R$:'],
+    ['Goiaba', 1.50],
+    ['Maçã', 1.80],
+    ['Laranja', 1.20],
+    ['Banana', 1.20],
+    ['Abacaxi', 6],
+    ['Melancia', 10],
+    ['Bergamota', 1.40],
+    ['Pera', 3],
+    ['Pêssego', 3.50],
+    ['Limão', 1.25] ]
+console.table(frutas)
+
+let soma = 0
+let mais = "S"
+    while (mais == "S" || mais == "s"){
+let indice = parseInt(prompt("\nInsira o código da fruta: "))
+    while (indice>10 || indice<1){
+        console.log("\nNão temos essa fruta em nossa fruteira.")
+        indice = parseInt(prompt("Por favor, reinsira o código: "))
+    }
+let unidades = parseInt(prompt("Quantidade de " + frutas[indice][0] + "s: "))
+    soma = soma + frutas[indice][1]*unidades
+    mais = prompt("Deseja adicionar mais frutas?(S/N) ")
+}
+
+console.log("\nO valor total da compra é: R$" + soma)
+    
+    if(soma>=30){
+        desconto = soma*0.1
+        preco = soma-desconto
+        console.log("\nDesconto de 10% aplicado.")
+        console.log("Valor a ser pago: R$" + preco)
+    }
+    else{
+        console.log("\nValor a ser pago: R$" + soma)
+    }
